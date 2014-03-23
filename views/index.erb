@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+  <h1>Idea Box</h1>
+  <p>type your idea here:</p>
+  <form action='/' method="POST">
+    <input type='text' name='idea_title'/><br/>
+    <textarea name='idea_description'></textarea><br/>
+    <input type="submit" value="ok">
+  </form>
+
+  <form action='/' method="POST">
+    <input type='text' name='idea_name'/><br/>
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete">
+  </form>
+
+  <h1>Existing Ideas:</h1>
+  <ul>
+  <% unless db.empty? %>
+    <% db.each do |k, v| %>
+      <li><%= "#{k} : #{v}" %></li>
+    <% end %>
+  <% end %>
+  </ul>
+
+</body>
+</html>
+
+
